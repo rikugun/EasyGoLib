@@ -5,8 +5,9 @@ import (
 	"log"
 
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"github.com/penggy/EasyGoLib/utils"
+	//_ "github.com/jinzhu/gorm/dialects/sqlite"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/rikugun/EasyGoLib/utils"
 )
 
 type Model struct {
@@ -22,9 +23,10 @@ func Init() (err error) {
 	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTablename string) string {
 		return "t_" + defaultTablename
 	}
-	dbFile := utils.DBFile()
+	//dbFile := utils.DBFile()
 	log.Println("db file -->", utils.DBFile())
-	SQLite, err = gorm.Open("sqlite3", fmt.Sprintf("%s?loc=Asia/Shanghai", dbFile))
+	//SQLite, err = gorm.Open("sqlite3", fmt.Sprintf("%s?loc=Asia/Shanghai", dbFile))
+	SQLite, err = gorm.Open("mysql", "<user>:<password>/<database>?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		return
 	}

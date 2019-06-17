@@ -129,6 +129,18 @@ func DBFileDev() string {
 	return filepath.Join(CWD(), strings.ToLower(EXEName())+".dev.db")
 }
 
+/**
+获取MySQL 连接串
+<user>:<password>/<database>?charset=utf8&parseTime=True&loc=Local
+*/
+func MysqlConnStr() string {
+	_host := Conf().Section("mysql").Key("host").Value()
+	_username := Conf().Section("mysql").Key("username").Value()
+	_password := Conf().Section("mysql").Key("password").Value()
+
+	return fmt.Sprint("%s:%s/%s", _username, _password, _host)
+}
+
 var conf *ini.File
 
 func Conf() *ini.File {
