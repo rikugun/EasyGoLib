@@ -1,9 +1,11 @@
 package db
 
 import (
-	"../utils"
 	"fmt"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"github.com/rikugun/EasyGoLib/utils"
 	"log"
 )
 
@@ -20,14 +22,16 @@ func Init() (err error) {
 	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTablename string) string {
 		return "t_" + defaultTablename
 	}
+	log.Println("db type ", utils.DBType())
 	switch utils.DBType() {
 	case "mysql":
-		DB, err = gorm.Open("mysql", "<user>:<password>/<database>?charset=utf8&parseTime=True&loc=Local")
+		DB, err = gorm.Open("mysql", utils.MysqlConnStr())
 	case "sqlite":
+		fallthrough
 	default:
 		{
-			dbFile := utils.DBFile()
 			log.Println("db file -->", utils.DBFile())
+			dbFile := utils.DBFile()
 			DB, err = gorm.Open("sqlite3", fmt.Sprintf("%s?loc=Asia/Shanghai", dbFile))
 			// Sqlite cannot handle concurrent writes, so we limit sqlite to one connection.
 			// see https://github.com/mattn/go-sqlite3/issues/274
