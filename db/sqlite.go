@@ -1,13 +1,10 @@
 package db
 
 import (
+	"../utils"
 	"fmt"
-	"log"
-
 	"github.com/jinzhu/gorm"
-	//_ "github.com/jinzhu/gorm/dialects/sqlite"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"github.com/rikugun/EasyGoLib/utils"
+	"log"
 )
 
 type Model struct {
@@ -23,16 +20,25 @@ func Init() (err error) {
 	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTablename string) string {
 		return "t_" + defaultTablename
 	}
-	//dbFile := utils.DBFile()
-	log.Println("db file -->", utils.DBFile())
-	//SQLite, err = gorm.Open("sqlite3", fmt.Sprintf("%s?loc=Asia/Shanghai", dbFile))
-	SQLite, err = gorm.Open("mysql", "<user>:<password>/<database>?charset=utf8&parseTime=True&loc=Local")
+	switch utils.DBType() {
+	case "mysql":
+		SQLite, err = gorm.Open("mysql", "<user>:<password>/<database>?charset=utf8&parseTime=True&loc=Local")
+	case "sqlite":
+	default:
+		{
+			dbFile := utils.DBFile()
+			log.Println("db file -->", utils.DBFile())
+			SQLite, err = gorm.Open("sqlite3", fmt.Sprintf("%s?loc=Asia/Shanghai", dbFile))
+			// Sqlite cannot handle concurrent writes, so we limit sqlite to one connection.
+			// see https://github.com/mattn/go-sqlite3/issues/274
+			SQLite.DB().SetMaxOpenConns(1)
+		}
+	}
+
 	if err != nil {
 		return
 	}
-	// Sqlite cannot handle concurrent writes, so we limit sqlite to one connection.
-	// see https://github.com/mattn/go-sqlite3/issues/274
-	SQLite.DB().SetMaxOpenConns(1)
+
 	SQLite.SetLogger(DefaultGormLogger)
 	SQLite.LogMode(false)
 	return
