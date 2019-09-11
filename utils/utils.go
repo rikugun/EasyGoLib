@@ -129,6 +129,10 @@ func DBFileDev() string {
 	return filepath.Join(CWD(), strings.ToLower(EXEName())+".dev.db")
 }
 
+func DBType() string {
+	return Conf().Section("").Key("db_type").Value()
+}
+
 /**
 获取MySQL 连接串
 <user>:<password>/<database>?charset=utf8&parseTime=True&loc=Local
