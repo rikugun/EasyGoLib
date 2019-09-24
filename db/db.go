@@ -25,6 +25,7 @@ func Init() (err error) {
 	log.Println("db type ", utils.DBType())
 	switch utils.DBType() {
 	case "mysql":
+		log.Println("db connstr %v ", utils.MysqlConnStr())
 		DB, err = gorm.Open("mysql", utils.MysqlConnStr())
 	case "sqlite":
 		fallthrough

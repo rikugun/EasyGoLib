@@ -141,8 +141,7 @@ func MysqlConnStr() string {
 	_host := Conf().Section("mysql").Key("host").Value()
 	_username := Conf().Section("mysql").Key("username").Value()
 	_password := Conf().Section("mysql").Key("password").Value()
-
-	return fmt.Sprint("%s:%s/%s", _username, _password, _host)
+	return fmt.Sprintf("%s:%s%s", _username, _password, _host)
 }
 
 var conf *ini.File
