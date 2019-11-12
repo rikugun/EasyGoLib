@@ -270,5 +270,5 @@ func init() {
 	gob.Register(map[string]interface{}{})
 	gob.Register(StringArray(""))
 	ini.PrettyFormat = false
-	shortidInst = shortid.MustNew(0, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 1)
+	shortidInst = shortid.MustNew(0, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_~", 1)
 }
