@@ -23,6 +23,8 @@ import (
 	"github.com/go-ini/ini"
 )
 
+var shortidInst *shortid.Shortid
+
 func LocalIP() string {
 	ip := ""
 	if addrs, err := net.InterfaceAddrs(); err == nil {
@@ -242,7 +244,7 @@ func Open(url string) error {
 }
 
 func ShortID() string {
-	return shortid.MustGenerate()
+	return shortidInst.MustGenerate()
 }
 
 func PauseExit() {
@@ -268,4 +270,5 @@ func init() {
 	gob.Register(map[string]interface{}{})
 	gob.Register(StringArray(""))
 	ini.PrettyFormat = false
+	shortidInst = shortid.MustNew(0, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 1)
 }
