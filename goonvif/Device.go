@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/beevik/etree"
-	mygosoap "github.com/rikugun/EasyGoLib/goonvif/gosoap"
+	"github.com/rikugun/gosoap"
 	"github.com/yakovlevdmv/WS-Discovery"
 	"github.com/yakovlevdmv/goonvif/Device"
 	"github.com/yakovlevdmv/goonvif/networking"
@@ -199,7 +199,7 @@ func (dev *OnvifDevice) GetEndpoint(name string) string {
 	return dev.endpoints[name]
 }
 
-func buildMethodSOAP(msg string) (mygosoap.SoapMessage, error) {
+func buildMethodSOAP(msg string) (gosoap.SoapMessage, error) {
 	doc := etree.NewDocument()
 	if err := doc.ReadFromString(msg); err != nil {
 		//log.Println("Got error")
@@ -208,7 +208,7 @@ func buildMethodSOAP(msg string) (mygosoap.SoapMessage, error) {
 	}
 	element := doc.Root()
 
-	soap := mygosoap.NewEmptySOAP()
+	soap := gosoap.NewEmptySOAP()
 	soap.AddBodyContent(element)
 	//soap.AddRootNamespace("onvif", "http://www.onvif.org/ver10/device/wsdl")
 

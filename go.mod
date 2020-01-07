@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/beevik/etree v1.1.0
 	github.com/eiannone/keyboard v0.0.0-20190314115158-7169d0afeb4f
-	github.com/elgs/gostrgen v0.0.0-20161222160715-9d61ae07eeae
+	github.com/elgs/gostrgen v0.0.0-20161222160715-9d61ae07eeae // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/gin-gonic/gin v1.5.0
 	github.com/go-ini/ini v1.51.1
@@ -20,6 +20,7 @@ require (
 	github.com/lestrrat-go/strftime v1.0.1 // indirect
 	github.com/onsi/ginkgo v1.11.0 // indirect
 	github.com/onsi/gomega v1.8.1 // indirect
+	github.com/rikugun/gosoap v0.0.0-20200107150725-9aba295364d6
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/tebeka/strftime v0.1.3 // indirect
@@ -27,7 +28,7 @@ require (
 	github.com/yakovlevdmv/Golang-iso8601-duration v0.0.0-20180403125811-e5db0413b903 // indirect
 	github.com/yakovlevdmv/WS-Discovery v0.0.0-20180512141937-16170c6c3677
 	github.com/yakovlevdmv/goonvif v0.0.0-20180517145634-8181eb3ef2fb
-	github.com/yakovlevdmv/gosoap v0.0.0-20180512142237-299a954b1c6d
-	golang.org/x/sys v0.0.0-20200106162015-b016eb3dc98e
+	github.com/yakovlevdmv/gosoap v0.0.0-20180512142237-299a954b1c6d // indirect
+	golang.org/x/sys v0.0.0-20200107144601-ef85f5a75ddf
 	gopkg.in/ini.v1 v1.51.1 // indirect
 )
