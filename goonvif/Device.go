@@ -18,7 +18,7 @@ import (
 
 var Xlmns = map[string]string{
 	"onvif":   "http://www.onvif.org/ver10/schema",
-	"tds":     "http://www.onvif.org/ver10/OnvifDevice/wsdl",
+	"tds":     "http://www.onvif.org/ver10/device/wsdl",
 	"trt":     "http://www.onvif.org/ver10/media/wsdl",
 	"tev":     "http://www.onvif.org/ver10/events/wsdl",
 	"tptz":    "http://www.onvif.org/ver20/ptz/wsdl",
