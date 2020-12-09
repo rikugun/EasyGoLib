@@ -14,7 +14,7 @@ func RedirectStderr() (err error) {
 	//for amd64
 	//err = syscall.Dup2(int(logFile.Fd()), int(os.Stderr.Fd()))
 	// for arm64
-	err = syscall.Dup3(int(logFile.Fd()), int(os.Stderr.Fd()))
+	err = syscall.Dup3(int(logFile.Fd()), int(os.Stderr.Fd()),0)
 	if err != nil {
 		return
 	}
