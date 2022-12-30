@@ -7,7 +7,7 @@ require (
 	github.com/eiannone/keyboard v0.0.0-20190314115158-7169d0afeb4f
 	github.com/elgs/gostrgen v0.0.0-20161222160715-9d61ae07eeae // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
-	github.com/gin-gonic/gin v1.5.0
+	github.com/gin-gonic/gin v1.7.0
 	github.com/go-ini/ini v1.51.1
 	github.com/go-redis/redis v6.15.6+incompatible
 	github.com/gorilla/context v1.1.1
@@ -29,6 +29,6 @@ require (
 	github.com/yakovlevdmv/WS-Discovery v0.0.0-20180512141937-16170c6c3677
 	github.com/yakovlevdmv/goonvif v0.0.0-20180517145634-8181eb3ef2fb
 	github.com/yakovlevdmv/gosoap v0.0.0-20180512142237-299a954b1c6d // indirect
-	golang.org/x/sys v0.0.0-20200107144601-ef85f5a75ddf
+	golang.org/x/sys v0.0.0-20200116001909-b77594299b42
 	gopkg.in/ini.v1 v1.51.1 // indirect
 )
