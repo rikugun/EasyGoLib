@@ -7,7 +7,7 @@ require (
 	github.com/eiannone/keyboard v0.0.0-20190314115158-7169d0afeb4f
 	github.com/elgs/gostrgen v0.0.0-20161222160715-9d61ae07eeae // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
-	github.com/gin-gonic/gin v1.5.0
+	github.com/gin-gonic/gin v1.7.7
 	github.com/go-ini/ini v1.51.1
 	github.com/go-redis/redis v6.15.6+incompatible
 	github.com/gorilla/context v1.1.1
