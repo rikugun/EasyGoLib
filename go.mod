@@ -29,6 +29,6 @@ require (
 	github.com/yakovlevdmv/WS-Discovery v0.0.0-20180512141937-16170c6c3677
 	github.com/yakovlevdmv/goonvif v0.0.0-20180517145634-8181eb3ef2fb
 	github.com/yakovlevdmv/gosoap v0.0.0-20180512142237-299a954b1c6d // indirect
-	golang.org/x/sys v0.0.0-20200107144601-ef85f5a75ddf
+	golang.org/x/sys v0.1.0
 	gopkg.in/ini.v1 v1.51.1 // indirect
 )
